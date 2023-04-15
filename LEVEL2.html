@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+.border{
+    border: solid #ffffff;
+    width: 1000px;
+    height: 600px;
+    margin-top: 8px;
+    background: url("background2.png");
+    background-size: cover;
+</style>
+</head>
+<body>
+    <div id="Tom" style="display: none;">
+        <h1>anda gagal</h1>
+        <h1 id="score">SCORE:<span id="skor">0</span></h1>
+        <a href="index.html">
+        <button style="background-color:#910aff;  border-radius:50px; font-size: 22px; width: 282px;" onclick="startGame()">balik</button></a>
+    <div id="next" style="display: none;">
+        <a href="LEVEL3.html">
+            <button style="background-color:#910aff;  border-radius:50px; font-size: 23px; width: 282px;" onclick="startGame()">NEXT</button>
+        </a>
+    </div>
+    </div>
+    <div class="border"> <!--untuk memulai ulang game-->
+        <div>
+            <!--Untuk menambahkan karakter-->
+            <div id="player" style="color:#ffffff;">
+                <h1>PLAYER</h1>
+                <img src="roket0.png">
+                <img src="roket1.png">
+                <img src="roket2.png"> 
+        </div>
+        <div >
+            <a href="index.html">
+               <img src="Exit.png" style="height: 45px;">
+            </a>
+        </div>
+<script type="text/javascript" src="script.js"></script>
+<script>
+function updateGameArea() {
+    var x, size, i, random, random1;
+    for (i = 0; i < myObstacles.length; i += 1) {
+        if (myGamePiece.crashWith(myObstacles[i])) {
+            mySound.play();
+            myMusic.stop();
+            myGameArea.stop();
+            document.getElementById('Tom').style.display=""; //untuk tombol mulai ulang
+            document.querySelector('next').style.display="none";//menghilangkan tombol next
+            return;
+        } 
+    }
+    if(myGameArea.frameNo==2000){ //menghentikan game ketiika mencapai 000
+        myGameArea.stop();
+        document.getElementById('Tom').style.display="";
+        document.getElementById('next').style.display = '';
+        document.querySelector('#Tom h1').innerHTML = 'YOU WIN!';
+
+    }
+    myGameArea.clear();
+    myBackground.newPos();
+    myBackground.update();
+    
+myGamePiece.speedX = 0;
+myGamePiece.speedY = 0;
+            if (myGameArea.key && myGameArea.key == 37) {myGamePiece.speedX = -4; } //mengatur kecepatan kekiri
+            if (myGameArea.key && myGameArea.key == 39) {myGamePiece.speedX = 4; } //mengatur kecepaatan kekanan
+            if (myGameArea.key && myGameArea.key == 38) {myGamePiece.speedY = -4; } //mengatur kecepatan keatas
+            if (myGameArea.key && myGameArea.key == 40) {myGamePiece.speedY = 4; } //mengaatur kecepatan kebawah
+    myGameArea.frameNo += 1;
+    if (myGameArea.frameNo == 1 || everyinterval(180)) {
+        x = myGameArea.canvas.width;
+        size = Math.random()*(80-40)+40;
+
+        i = Math.round(Math.random()*2+1); //index obs
+        random = Math.floor(Math.random()*250); //
+        random1 = Math.floor(Math.random()*250+250);
+        myObstacles.push(new component(150, 50, "ufo.png", x, random, "image")); // obstacle untuk game
+        myObstacles.push(new component(100, 70, "ufo.png", x, random1, "image")); // obstacle untuk game
+        myObstacles.push(new component(200, 90, "ufo.png", x, random2, "image")); // obstacle untuk game
+    }
+    for (i = 0; i < myObstacles.length; i += 1) {
+        myObstacles[i].x += -7; //KECEPATAN OBSTACLE
+        myObstacles[i].update();
+    }
+    //untuk menambahkan score
+    myScore.text="SCORE: " + myGameArea.frameNo;
+    myScore.update();
+    myGamePiece.newPos();    
+    myGamePiece.update();
+    myMusic.play();
+}
+
+</script>
+</body>
+</html>
