@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+
+    <!--------------------------------------------CSS STYLE------------------------------------------->
+    <style type="text/css">
+      .potrait {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+      }
+
+      body {
+        background-color: darkblue;
+        margin: 0;
+        padding: 0;
+      }
+
+      .judul {
+        color: yellows;
+        font-size: 5vw;
+      }
+
+      .tombol {
+        width: 6vw;
+      }
+
+      .border1 {
+        height: 62;
+      }
+      .skin {
+        position: absolute;
+        top: 24%;
+        right: 45%;
+      }
+
+      /*---------------------------------------------RESPONSIVE-----------------------------------------*/
+      @media screen and (min-width: 400px) {
+        .judul {
+          font-size: 15vw;
+        }
+        .tombol {
+          width: 65px;
+        }
+      }
+
+      @media screen and (min-width: 550px) {
+        .judul {
+          font-size: 10vw;
+        }
+        .tombol {
+          width: 60px;
+        }
+      }
+
+      @media screen and (orientation: portrait) {
+        body {
+          background-color: black;
+          color: white;
+        }
+
+        .landscape {
+          display: none;
+        }
+      }
+
+      @media screen and (orientation: landscape) {
+        .landscape {
+          display: block;
+        }
+
+        .potrait {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="potrait">
+        <h1>Tolong miringkan hp anda</h1>
+      </div>
+      <div class="landscape">
+        <h1 class="judul">
+          <marquee>
+            <span style="color: lightblue">TERA IN</span>
+            <span style="color: indianred"> GALAXY ADVENTURE</span>
+          </marquee>
+        </h1>
+        <div class="tombol">
+          <!--  -->
+          <div class="border1">
+            <a href="LEVEL1.html"><img src="tombol play.png" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
