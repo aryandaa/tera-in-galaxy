@@ -1,0 +1,160 @@
+/*------------------------------css untuk keseluruhan game-------------------------------*/
+
+*{
+    text-align: center;
+}
+
+
+div{
+    text-align: center;
+    margin: 3% auto;
+}
+button{
+    width: 282px;
+    height: 43px;
+    font-family: 'Inter'; 
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+}
+button:active{
+    background-color: #910aff;
+}
+
+html,body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+canvas {
+    width: 100%;
+    height: 100vh;
+    border:1px solid rgb(255, 255, 255); 
+}
+
+#Tom{
+    position:fixed;
+    top: 25%;
+    left:37%;
+    border-radius: 20%;
+    width: 350px;
+    height: 250px;
+    background:#6d3cdf;
+}
+.Tom1{
+    position:fixed;
+    top: 25%;
+    left:37%;
+    border-radius: 20%;
+    width: 350px;
+    height: 250px;
+    background:#6d3cdf;
+}
+img{
+    width: 150px;
+    height: 150px;
+}
+
+#player {
+    size: 50px;
+}
+
+.restart {
+    background-color:#910aff;  
+    border-radius:50px; 
+    font-size: 22px; 
+    width: 282px;
+}
+
+#next {
+    background-color:#910aff;  
+    border-radius:50px; 
+    font-size: 23px; 
+    width: 282px;
+}
+
+
+/*----------------------------------css untuk level 1--------------------------------------------*/
+.border{
+    border: solid #ffffff;
+    width: 1000px;
+    height: 600px;
+    margin-top: 8px;
+    background: url("background.png");
+    background-size: cover;
+}
+
+/*----------------------------------css untuk level 2--------------------------------------------*/
+.border2{
+    border: solid #ffffff;
+    width: 1000px;
+    height: 600px;
+    margin-top: 8px;
+    background: url("background2.png");
+    background-size: cover;
+}
+
+/*----------------------------------css untuk level 3--------------------------------------------*/
+
+.border3{
+    border: solid #ffffff;
+    width: 1000px;
+    height: 600px;
+    margin-top: 8px;
+    background: url("bg level 3.png");
+    background-size: cover;
+}
+
+/*---------------------------------------------RESPONSIVE-----------------------------------------*/
+            @media screen and (min-width: 400px) {
+                .judul {
+                    font-size: 15vw;
+                }
+                .tombol {
+                    width: 65px;
+                }
+                
+            }
+
+            @media screen and (min-width: 550px) {
+                .judul {
+                    font-size: 10vw;
+                }
+                .tombol {
+                    width: 60px;
+                }
+            }
+
+/*---------------------------------------------RESPONSIVE LANDSCAPE-----------------------------------------*/
+    @media screen and (orientation: portrait) {
+        body {
+          background-color: black;
+          color: white;
+        }
+
+        .landscape {
+          display: none;
+        }
+      }
+
+      @media screen and (orientation: landscape) {
+        .landscape {
+          display: block;
+        }
+
+        .potrait {
+          display: none;
+        }
+      }
+/*---------------------------------------------RESPONSIVE CANVAS-----------------------------------------*/
+    /*@media screen and (min-width: 400px) {
+                .judul {
+                    font-size: 15vw;
+                }
+                .tombol {
+                    width: 65px;
+                }
+                
+            }*/
